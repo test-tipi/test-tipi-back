@@ -50,8 +50,9 @@ public class PersonRepository{
 		PreparedStatement pstmt = null;
 
 		try {
+			System.err.println(person.toString());
 			connection = DriverManager.getConnection(dataBaseUrl, dataBaseUserName, dataBasePassword);
-			pstmt = connection.prepareStatement("UPDATE  tipitest.person SET name = ?,last_name = ?, age = ? where id = ?");
+			pstmt = connection.prepareStatement("UPDATE tipitest.person SET name = ?,last_name = ?, age = ? where id = ?");
 			pstmt.setString(1, person.getName());
 			pstmt.setString(2, person.getLastName());
 			pstmt.setInt(3, person.getAge());
@@ -75,7 +76,7 @@ public class PersonRepository{
 
 		try {
 			connection = DriverManager.getConnection(dataBaseUrl, dataBaseUserName, dataBasePassword);
-			pstmt = connection.prepareStatement("SELET * FROM tipitest.person where id = ?");
+			pstmt = connection.prepareStatement("SELECT * FROM tipitest.person where id = ?");
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -98,7 +99,7 @@ public class PersonRepository{
 
 		try {
 			connection = DriverManager.getConnection(dataBaseUrl, dataBaseUserName, dataBasePassword);
-			pstmt = connection.prepareStatement("DELETO FROM tipitest.person where id = ?");
+			pstmt = connection.prepareStatement("DELETE FROM tipitest.person where id = ?");
 			pstmt.setInt(1, person.getId());
 			int rowCount = pstmt.executeUpdate();
 			if (rowCount == 0) {

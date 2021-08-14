@@ -22,7 +22,7 @@ public class PersonController {
 	@Autowired
 	private PersonService service;
 	
-	@PostMapping(path = "/insert")
+	@PostMapping(path = "/insert/")
 	public ResponseEntity<Void> insertPerson(@RequestBody PersonDTO person) {
 		try {
 			service.insertPerson(person);
@@ -34,7 +34,7 @@ public class PersonController {
 		
 	}
 
-	@PostMapping(path = "/update")
+	@PostMapping(path = "/update/")
 	public ResponseEntity<Void> updatePerson(@RequestBody PersonDTO person) {
 		try {
 			service.updatePerson(person);
@@ -58,7 +58,7 @@ public class PersonController {
 		
 	}
 
-	@PostMapping(path = "/delete")
+	@PostMapping(path = "/delete/")
 	public ResponseEntity<Void> deletePerson(@RequestBody PersonDTO person) {
 		try {
 			service.deletePerson(person);

@@ -5,7 +5,12 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PersonDTO implements Serializable {
-    @JsonProperty(value="id")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty(value="id")
     private Integer id;
     
     @JsonProperty(value="name")
